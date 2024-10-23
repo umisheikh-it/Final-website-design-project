@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9f1eea5a11.js" crossorigin="anonymous"></script>
+    
+    <style>
+      .a {
+        box-shadow: 1px 1px 26px 1px black;
+      }
+      .f {
+          background-image: linear-gradient(to bottom, black, rgb(175, 175, 175), black)
+        }
+        .d {
+          background-color: black;
+          z-index: 2001;
+        }
+        .b {
+            
+            width: 100%;
+           background-image: linear-gradient(to bottom, black, rgb(175, 175, 175), black);
+            position: relative;
+        }
+        .c {
+          background-color: black;
+        }
+        .clock {
+          font-family: sans-serif
+        }
+        .fa-microscope {
+          font-size: 150px;
+        }
+        .p {
+          background-color: black;
+          height: 356px;
+        }
+        .fa-instagram {
+          color: rgb(236, 236, 236);
+          font-size: 45px;
+        }
+        .fa-facebook {
+          color: #ffffff;
+          font-size: 45px;
+        }
+        .fa-twitter {
+          color: rgb(255, 255, 255);
+          font-size: 45px;
+        }
+        .fa-youtube {
+          color: rgb(255, 255, 255);
+          font-size: 45px;
+        }
+        .fa-github {
+          color: white;
+          font-size: 45px;
+        }
+        .fa-discord {
+          color: white;
+          font-size: 45px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg d text-white">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="main.html">&ensp;<i class="fa-solid fa-house"></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon navbar-dark" ></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="main.html">Home</a>
+              </li>
+              
+             
+          
+              <li class="nav-item">
+                <a class="nav-link active text-white" href="about us.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="our work.html">Our work</a>
+              </li>
+              <li>
+                <button class="btn btn-primary " data-bs-target="#signup" data-bs-toggle="modal">Sign up</button>
+                
+            <button class="btn btn-secondary ms-2" data-bs-toggle="modal" data-bs-target="#login">Login </button>
+            
+              
+                     
+              </li>
+            </ul>
+            <div id="MyClockDisplay" class="clock me-2" onload="showTime()"></div>
+           <script>
+            function showTime(){
+              var date = new Date();
+              var h = date.getHours();
+              var m = date.getMinutes(); 
+              var s = date.getSeconds(); 
+              var session = "AM";
+              
+              if(h == 0){
+                  h = 12;
+              }
+              
+              if(h > 12){
+                  h = h - 12;
+                  session = "PM";
+              }
+              
+              h = (h < 10) ? "0" + h : h;
+              m = (m < 10) ? "0" + m : m;
+              s = (s < 10) ? "0" + s : s;
+              
+              var time = h + ":" + m + ":" + s + " " + session;
+              document.getElementById("MyClockDisplay").innerText = time;
+              document.getElementById("MyClockDisplay").textContent = time;
+              
+              setTimeout(showTime, 1000);
+              
+          }
+          
+          showTime();
+          </script>
+
+
+    
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search..." >
+              <button class="btn btn-outline-success "><i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+            
+            
+          </div>
+          <div class="modal fade" style="margin-top: 2%;" id="signup" tabindex="-1" >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-black">
+                  <h1 class="modal-title fs-5" id="signup">Sign up</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body text-black text-start">
+                  <form name="newform" onsubmit="return myFunction() " >
+                    <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text" class="form-control" id="username" placeholder="Enter Username">
+                      
+                    </div><br>
+                    <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email">
+                      
+                      
+                    </div><br>
+                    <div class="form-group">
+                      <label for="pas">Password</label>
+                      <input type="password" class="form-control" id="pas" placeholder="Password">
+                      
+                    </div><br>
+                    <div class="form-group">
+                      <label for="pas">Confirm Password</label>
+                      <input type="password" class="form-control" id="cpas" placeholder="Password">
+                      <span id="cpas1" style="color: red;"></span>
+                    </div><br>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                  <script>
+                    function myFunction() {
+                      
+                      
+                        var y = document.getElementById("pas").value;
+                        var z = document.getElementById("cpas").value;
+                          
+                         if(y != z) {
+                          document.getElementById("cpas1").innerHTML="Passwords do not match"
+  
+                          return false;
+                         }
+                        }
+                    
+                  </script>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="login" tabindex="-1" >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header text-black">
+                  <h1 class="modal-title fs-5" id="login">Login</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body text-black text-start">
+                  <form>
+                    <div class="form-group">
+                      <label for="username2">Username</label>
+                      <input type="text" class="form-control" id="username2" placeholder="Enter Username">
+                    </div><br>
+                    
+                    <div class="form-group">
+                      <label for="lpas">Password</label>
+                      <input type="password" class="form-control" id="lpas" placeholder="Password">
+                    </div><br>
+                    
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav><br><br>
+      <div class="container-fluid b"><br><br>
+        <div class="container d-flex justify-content-center">
+          <video class="w-100 a" loop autoplay muted>
+            <source src="Nanotechnology.jpg" type="video/mp4"/>
+          </video>
+          
+        </div>
+        <br><br><br>
+      </div>
+      <div class="container-fluid c">
+        <div class="row text-white">
+          <div class="col-7 ms-2"> <br><br><h2 class="text-white">Going deep in research</h2>
+            <p class="text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero quas est assumenda iure, autem sint illum mollitia molestiae a ex aut ipsa, repudiandae earum. Earum veniam eveniet mollitia maxime adipisci? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga iste necessitatibus odit recusandae cumque libero numquam qui earum velit adipisci incidunt voluptates,Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo libero impedit facilis laborum eveniet similique ipsum repellendus sint, accusamus eaque ipsam officia delectus fugiat doloremque veniam cumque autem vel voluptas. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod eum doloribus ducimus illo alias libero asperiores voluptate, nam adipisci aperiam aliquid optio dicta obcaecati magnam omnis doloremque, consectetur nemo vero.</p></div>
+          <div class="col-4 text-center align-items-center"><br><br><br>
+            <i class="fa-solid fa-microscope"></i><br><br>
+           <button onclick="document.location='about us.html'" class="btn btn-outline-light mx-auto d-block" >About us</button>
+           
+          </div>
+        </div>
+          </div>
+          <div class="container-fluid f "><br><br><br><br>
+            <div class="d-flex">
+              <div class="container"><img class="img-fluid a" src="E.jpg" alt=""></div>
+            <div class="container text-white">
+              
+              <br><h2>Stories of Success</h2><br>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, fuga nam. Officiis, aspernatur, molestias magnam consequuntur nostrum, recusandae quisquam maiores ratione perspiciatis rerum cum ducimus quae corporis dignissimos eum est. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati praesentium repellat debitis minus libero ipsum pariatur repellendus atque. Veritatis maiores iusto natus ratione omnis?</p> <h2>Power of Excellence</h2><br> <p>  Dolore autem veritatis qui doloremque pariatur minima ullam reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, maiores eveniet totam architecto sapiente illo, quod vero quas iure fugit soluta sed commodi esse. Nesciunt ullam qui velit dolor molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eveniet placeat enim libero eligendi harum repellendus consequuntur. </p>
+              </div>
+            
+            
+            </div><br><br><br><br>
+            
+          </div>
+          <div class="footer container-fluid text-white p">
+        
+            <footer class=" text-center text-lg-start">
+              <div class="container-fluid d-flex text-center">
+                <div class="container"><h2>Contact Us</h2><hr>
+                    <p>+92 1234567890</p>
+                    <p>+92 0987654321</p>
+                    <p>Someone@example.com</p>
+                    
+                </div>
+                <div class="container"><h2>Open Hrs</h2><hr>
+                  <p>Mon-Fri 12 PM-1 AM</p>
+                <p>Saturday 12 PM-2 AM</p>
+                
+                </div>
+                <div class="container"><h2>Follow Us</h2><hr>
+                <p>Facebook</p>
+                <p>Instagram</p>
+                <p>Twitter</p>
+                </div>
+              </div>
+              <div class="container-fluid text-center text-white pe-5"><br>
+                <i class="fa-brands fa-instagram"></i>&ensp;&ensp;
+                <i class="fa-brands fa-facebook"></i>&ensp;&ensp;
+                <i class="fa-brands fa-twitter"></i>&ensp;&ensp;
+                <i class="fa-brands fa-youtube"></i>&ensp;&ensp;
+                <i class="fa-brands fa-github"></i>&ensp;&ensp;
+                <i class="fa-brands fa-discord"></i>
+              </div>
+              <div class="text-center p-4 pe-5" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:
+                <a class="text-dark" href="https://www.facebook.com/umisheikh.it">Umair Sheikh</a>
+              </div>
+              
+            </footer>
+          </div>
+      </body>
+      </html>
